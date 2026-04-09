@@ -1,6 +1,9 @@
 body {
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    touch-action: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,4 +14,11 @@ body {
     font-size: 15vw;
     transition: font-family 0.2s ease;
     user-select: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    transition: font-size 0.15s ease-out;
 }
