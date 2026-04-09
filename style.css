@@ -10,7 +10,11 @@ body {
     align-items: center;
     background: #f8f8f8;
 }
-
+#scroll-wrapper {
+    height: 200vh; /* twice the screen height */
+    width: 100%;
+    position: relative;
+}
 #lyfus {
     font-size: 15vw;
     transition: font-family 0.2s ease;
