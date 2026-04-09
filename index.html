@@ -5,6 +5,58 @@
     <title>LYFUS</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+let startY = 0;
+let currentFont = 16; // starting font size in px
+const text = document.getElementById("lyfus");
+
+function updateFont(delta) {
+    currentFont += delta;
+    if (currentFont < 8) currentFont = 8;
+    if (currentFont > 200) currentFont = 200;
+    text.style.fontSize = currentFont + "px";
+}
+
+// Touch start
+document.addEventListener("touchstart", (e) => {
+    startY = e.touches[0].clientY;
+});
+
+// Touch move
+document.addEventListener("touchmove", (e) => {
+    let endY = e.touches[0].clientY;
+    let diff = startY - endY;
+
+    if (Math.abs(diff) > 20) {
+        if (diff > 0) updateFont(1);   // swipe up
+        else updateFont(-1);           // swipe down
+        startY = endY;
+    }
+});
+
+// Mouse support (desktop)
+let mouseDown = false;
+
+document.addEventListener("mousedown", (e) => {
+    mouseDown = true;
+    startY = e.clientY;
+});
+
+document.addEventListener("mouseup", () => {
+    mouseDown = false;
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (!mouseDown) return;
+    let diff = startY - e.clientY;
+
+    if (Math.abs(diff) > 10) {
+        if (diff > 0) updateFont(1);
+        else updateFont(-1);
+        startY = e.clientY;
+    }
+});
+</script>
 <body>
     <div id="lyfus">LYFUS</div>
     <script src="script.js"></script>
