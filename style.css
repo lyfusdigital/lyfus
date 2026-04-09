@@ -19,11 +19,14 @@ body {
     font-size: 15vw;
     transition: font-family 0.2s ease;
     user-select: none;
-    position: absolute;
+    position: fixed; /* stays centered even while page "scrolls" */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     width: 100%;
     transition: font-size 0.15s ease-out;
+
+       
+
 }
