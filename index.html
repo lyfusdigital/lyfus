@@ -7,7 +7,7 @@
 </head>
 <script>
 let startY = 0;
-let currentFont = 40; // starting size
+let currentFont = 40;
 const text = document.getElementById("lyfus-text");
 
 function updateFont(delta) {
@@ -17,24 +17,21 @@ function updateFont(delta) {
     text.style.fontSize = currentFont + "px";
 }
 
-// Touch start
 document.addEventListener("touchstart", (e) => {
     startY = e.touches[0].clientY;
-});
+}, { passive: false });
 
-// Touch move
 document.addEventListener("touchmove", (e) => {
-    e.preventDefault(); // IMPORTANT
+    e.preventDefault(); // REQUIRED
     let endY = e.touches[0].clientY;
     let diff = startY - endY;
 
-    if (Math.abs(diff) > 20) {
-        if (diff > 0) updateFont(2);   // swipe up
-        else updateFont(-2);           // swipe down
+    if (Math.abs(diff) > 10) {
+        if (diff > 0) updateFont(2);
+        else updateFont(-2);
         startY = endY;
     }
-}, { passive: false }); // IMPORTANT
-
+}, { passive: false });
 // Mouse support (desktop)
 let mouseDown = false;
 
