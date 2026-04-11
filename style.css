@@ -39,3 +39,16 @@ body {
     width: 100%;
 
 }
+
+/* Portrait mode adjustments */
+@media (orientation: portrait) {
+    #lyfus {
+	font-size: 10vw;
+        top: 50%; /* pull it up */
+    }
+
+    #sounddesign {
+font-size: 4vw;
+        top: 53%; /* pull it up */
+    }
+}
