@@ -16,7 +16,7 @@ body {
     position: relative;
 }
 #lyfus {
-    font-size: 15vw;
+    font-size: 10vw;
     transition: font-family 0.2s ease;
     user-select: none;
     position: fixed; /* stays centered even while page "scrolls" */
